@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">Username</th>
+                        <th scope="col" *ngIf="!editUserFlag">email</th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let user of users">
+                        <th scope="row">{{ user.id }}</th>
+                        <td>{{ user.username }}</td>
+                        <td *ngIf="!editUserFlag">{{ user.email }}</td>
+                        <td><a (click)="onSelectUser(user.id)" class="btn btn-outline-primary btn-sm">Edit</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-6" *ngIf="editUserFlag">
+            <app-edit-user></app-edit-user>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,42 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Book Store</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a 
+                    class="nav-link"
+                    routerLink='/home'>Home <span class="sr-only">(current)</span></a>
+            </li>
+        </ul>
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item" *ngIf="!hasAnyRole()">
+                <a 
+                    class="nav-link"
+                    routerLink="/login">Login</a>
+            </li>
+            <li class="nav-item">
+                <a 
+                    class="nav-link"
+                    routerLink="/singup"
+                    *ngIf="!hasAnyRole()">Singup</a>
+            </li>
+            <li class="navbar-nav">
+                <a
+                    class="nav-link"
+                    routerLink="/admin/users"
+                    *ngIf="hasRole('ROLE_ADMIN')">Admin</a>
+            </li>
+            <li class="nav-item">
+                <a 
+                    class="nav-link"
+                    routerLink="/login"
+                    (click)="onLogout()"
+                    *ngIf="hasAnyRole()">Logout</a>
+            </li>
+        </ul>
+    </div>
+  </nav>
