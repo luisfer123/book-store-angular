@@ -7,6 +7,7 @@ import { AdminBooksComponent } from './admin-books/admin-books.component';
 import { EditUserComponent } from './users/edit-user/edit-user.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { AddBookComponent } from './add-book/add-book.component';
+import { EditBookComponent } from './admin-books/edit-book/edit-book.component';
 
 @NgModule({
     declarations: [
@@ -14,7 +15,8 @@ import { AddBookComponent } from './add-book/add-book.component';
         AdminComponent,
         AdminBooksComponent,
         EditUserComponent,
-        AddBookComponent
+        AddBookComponent,
+        EditBookComponent
     ],
     imports: [
         CommonModule,

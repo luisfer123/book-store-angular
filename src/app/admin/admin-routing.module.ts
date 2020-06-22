@@ -6,6 +6,7 @@ import { UsersComponent } from './users/users.component';
 import { AdminBooksComponent } from './admin-books/admin-books.component';
 import { EditUserComponent } from './users/edit-user/edit-user.component';
 import { AddBookComponent } from './add-book/add-book.component';
+import { EditBookComponent } from './admin-books/edit-book/edit-book.component';
 
 const routes: Routes = [
     {
@@ -17,13 +18,17 @@ const routes: Routes = [
         },
         children: [
           { path: 'users', component: UsersComponent },
-          { path: 'books', component: AdminBooksComponent }
+          {
+            path: 'add-book',
+            component: AddBookComponent
+          },
+          { 
+            path: 'books', 
+            component: AdminBooksComponent,
+          },
+          { path: ':id/edit', component: EditBookComponent }
         ]
       },
-      {
-        path: 'add-book',
-        component: AddBookComponent
-      }
 ]
 
 @NgModule({

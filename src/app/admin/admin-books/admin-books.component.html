@@ -1,7 +1,7 @@
 <div class="container">
     <a 
         class="btn btn-primary mt-3 mb-5"
-        routerLink="/add-book">Add New Book</a>
+        routerLink="/admin/add-book">Add New Book</a>
 </div>
 
 <table class="table">
@@ -19,6 +19,7 @@
             <td>{{ book.name }}</td>
             <td>{{ book.author }}</td>
             <td>{{ book.price }} </td>
+            <td><a routerLink="/admin/{{ book.id }}/edit" class="btn btn-primary">Edit</a></td>
         </tr>
     </tbody>
 </table>
