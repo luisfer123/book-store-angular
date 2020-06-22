@@ -19,4 +19,16 @@ export class BookService {
         }
       ));
   }
+
+  getImageBook(bookId: number): Observable<any> {
+    return this.httpClient.get<any>(`${environment.apiUrl}/api/v1/books/${bookId}/imageBook`);
+  }
+
+  updateBookInfo(bookId: number, updatedBook: Book): Observable<Book> {
+    return this.httpClient.put<Book>(`${environment.apiUrl}/api/v1/books/${bookId}/updateInfo`, updatedBook);
+  }
+
+  updateImage(formImageData: FormData, bookId: number) {
+    return this.httpClient.put<any>(`${environment.apiUrl}/api/v1/books/${bookId}/updateImage` ,formImageData);
+  }
 }
