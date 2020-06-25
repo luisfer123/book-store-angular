@@ -11,11 +11,16 @@ export class AdminBooksComponent implements OnInit {
 
   books: Book[];
 
+  currentPage = 0;
+  pageSize = 3;
+  sortBy = '';
+
   constructor(private bookService: BookService) { }
 
   ngOnInit() {
-    this.bookService.getBooks().subscribe(books => {
-      this.books = books;
+    this.bookService.getBooks(this.currentPage, this.pageSize, this.sortBy).subscribe(booksPage => {
+      console.log(booksPage);
+      this.books = booksPage.content;
     });
   }
 
